@@ -1,22 +1,21 @@
 #!/bin/sh -l
 
-gpus = $1
-gpu_type = $2
-cpu = $3
-memory = $4
-min_scale = $5
-max_scale = $6
-env = $7
+export INPUT_GPUS = $1
+export INPUT_GPU_TYPE = $2
+export INPUT_CPU = $3
+export INPUT_MEMORY = $4
+export INPUT_MIN_SCALE = $5
+export INPUT_MAX_SCALE = $6
+export INPUT_ENV = $7
 
-echo "gpus: $gpus"
-echo "gpu_type: $gpu_type"
-echo "cpu: $cpu"
-echo "memory: $memory"
-echo "min_scale: $min_scale"
-echo "max_scale: $max_scale"
-echo "env: $env"
+echo "gpus: $INPUT_GPUS"
+echo "gpu_type: $INPUT_GPU_TYPE"
+echo "cpu: $INPUT_CPU"
+echo "memory: $INPUT_MEMORY"
+echo "min_scale: $INPUT_MIN_SCALE"
+echo "max_scale: $INPUT_MAX_SCALE"
+echo "env: $INPUT_ENV"
 
 
 aws eks update-kubeconfig --name divyanshu --region us-east-1       
-tensorkube deploy --gpus $gpus --gpu-type $gpu_type --cpu $cpu --memory $memory --min-scale $min_scale --max-scale $max_scale --env $env
-
+tensorkube deploy --gpus $INPUT_GPUS --gpu-type $INPUT_GPU_TYPE --cpu $INPUT_CPU --memory $INPUT_MEMORY --min-scale $INPUT_MIN_SCALE --max-scale $INPUT_MAX_SCALE --env $INPUT_ENV
