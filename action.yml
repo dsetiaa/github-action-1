@@ -28,7 +28,7 @@ inputs:
   env:
     description: 'Environment in which to deploy'
     required: false
-    default: 'default'
+    default: null
 runs:
   using: 'docker'
   image: 'Dockerfile'
