@@ -4,7 +4,7 @@ inputs:
   gpus:
     description: 'Number of gpus to use'
     required: false
-    default: 0
+    default: '0'
   gpu_type:
     description: 'Type of gpu to use'
     required: false
@@ -12,19 +12,19 @@ inputs:
   cpu:
     description: 'Number of cpus to use'
     required: false
-    default: 100
+    default: '100'
   memory:
     description: 'Amount of memory to use'
     required: false
-    default: 200
+    default: '200'
   min_scale:
     description: 'Minimum number of replicas'
     required: false
-    default: 0
+    default: '0'
   max_scale:
     description: 'Maximum number of replicas'
     required: false
-    default: 3
+    default: '3'
   env:
     description: 'Environment in which to deploy'
     required: false
