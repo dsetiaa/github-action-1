@@ -8,6 +8,8 @@ export INPUT_MIN_SCALE = $5
 export INPUT_MAX_SCALE = $6
 export INPUT_ENV = $7
 
+echo "Inputs: $1, $2, $3, $4, $5, $6, $7"
+
 echo "gpus: $INPUT_GPUS"
 echo "gpu_type: $INPUT_GPU_TYPE"
 echo "cpu: $INPUT_CPU"
