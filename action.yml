@@ -29,6 +29,10 @@ inputs:
     description: 'Environment in which to deploy'
     required: false
     default: null
+  path:
+    description: 'Path to Dockerfile'
+    required: false
+    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -40,3 +44,4 @@ runs:
     - ${{ inputs.min_scale }}
     - ${{ inputs.max_scale }}
     - ${{ inputs.env }}
+    - ${{ inputs.path }}
