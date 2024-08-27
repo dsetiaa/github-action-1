@@ -1,33 +1,47 @@
-# Hello world docker action
+# test tensorkube Deploy Github Action
 
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+This action runs the deploys the respository application using tensorkube.
 
 ## Inputs
 
+### token
+**Required** Your tensorkube `token`
+
+### session_id
+**Required** Your tensorkube `session_id`
+
 ### gpus
-**Required** Number of gpus to use. Default `0`.
+**Optional** Number of gpus to use. Default `0`.
 
 ### `gpu_type`
 **Optional** Type of GPU to use. Default is `null`.
 
 ### `cpu`
-**Required** Number of CPUs to use. Default is `100`.
+**Optional** Number of CPUs to use. Default is `100`.
 
 ### `memory`
-**Required** Amount of memory to use. Default is `200`.
+**Optional** Amount of memory to use. Default is `200`.
 
 ### `min_scale`
-**Required** Minimum number of replicas. Default is `0`.
+**Optional** Minimum number of replicas. Default is `0`.
 
 ### `max_scale`
-**Required** Maximum number of replicas. Default is `3`.
+**Optional** Maximum number of replicas. Default is `3`.
 
 ### `env`
-**Required** Environment in which to deploy. Default is `default`
+**Optional** Environment in which to deploy. Default is `null`.
+
+### `path`
+**Optional** Path where to run the command. Default is ` `.
 
 
 ## Example usage
 
-uses: actions/github-action-1@v2
+uses: tensorfuse/tensorkube-github-deploy@v1
 with:
-  who-to-greet: 'Mona the Octocat'
+  path: 'test_app'
+  gpus: 1
+  gpu_type: 'a10g'
+  min_scale: 0
+  max_scale: 5
+  env: 'dev'
