@@ -7,13 +7,13 @@ cd $8
 export TENSORKUBE_TOKEN=$9
 export TENSORKUBE_SESSION_ID=${10}
 
-echo "Version: 17.0.5"
+echo "Version: 17.0.6"
 
 secrets=$(echo $11 | tr ' ' '\n')
 
 # Create a string with the --secret flag for each secret
 secrets_flags=""
-for secret in "${secrets[@]}"; do
+for secret in $secrets; do
     secrets_flags+="--secret $secret "
 done
 
