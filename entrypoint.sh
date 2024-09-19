@@ -7,31 +7,27 @@ cd $8
 export TENSORKUBE_TOKEN=$9
 export TENSORKUBE_SESSION_ID=${10}
 
-if [ "$TENSORKUBE_TOKEN" = "acad6d95-040b-4f16-871d-a76efe7e1502" ]; then
-    echo "TENSORKUBE_TOKEN matches"
-else
-    echo "TENSORKUBE_TOKEN does not match"
-fi
+IFS=$'\n' read -d '' -r -a secrets <<< "$11"
 
-if [ "$TENSORKUBE_SESSION_ID" = "fb1a2d65-0b71-4ade-b591-d5df92b44540" ]; then
-    echo "TENSORKUBE_SESSION_ID matches"
-else
-    echo "TENSORKUBE_SESSION_ID does not match"
-fi
+# Create a string with the --secret flag for each secret
+secrets_flags=""
+for secret in "${secrets[@]}"; do
+    secrets_flags+="--secret $secret "
+done
 
-echo "TENSORKUBE_TOKEN:" $TENSORKUBE_TOKEN
-echo "TENSORKUBE_SESSION_ID:" $TENSORKUBE_SESSION_ID
+echo "Version: 17.0.1"
+
 
 if [ -n "$2" ]; then
     if [ -n "$7" ]; then
-        tensorkube deploy --gpus $1 --gpu-type $2 --cpu $3 --memory $4 --min-scale $5 --max-scale $6 --env $7
+        tensorkube deploy --gpus $1 --gpu-type $2 --cpu $3 --memory $4 --min-scale $5 --max-scale $6 --env $7 --github-actions $secrets_flags
     else
-        tensorkube deploy --gpus $1 --gpu-type $2 --cpu $3 --memory $4 --min-scale $5 --max-scale $6
+        tensorkube deploy --gpus $1 --gpu-type $2 --cpu $3 --memory $4 --min-scale $5 --max-scale $6 --github-actions $secrets_flags
     fi
 else
     if [ -n "$7" ]; then
-        tensorkube deploy --gpus $1 --cpu $3 --memory $4 --min-scale $5 --max-scale $6 --env $7
+        tensorkube deploy --gpus $1 --cpu $3 --memory $4 --min-scale $5 --max-scale $6 --env $7 --github-actions $secrets_flags
     else
-        tensorkube deploy --gpus $1 --cpu $3 --memory $4 --min-scale $5 --max-scale $6
+        tensorkube deploy --gpus $1 --cpu $3 --memory $4 --min-scale $5 --max-scale $6 --github-actions $secrets_flags
     fi
 fi
