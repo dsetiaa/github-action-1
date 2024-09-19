@@ -15,7 +15,7 @@ for secret in "${secrets[@]}"; do
     secrets_flags+="--secret $secret "
 done
 
-echo "Version: 17.0.1"
+echo "Version: 17.0.2"
 
 
 if [ -n "$2" ]; then
