@@ -7,7 +7,9 @@ cd $8
 export TENSORKUBE_TOKEN=$9
 export TENSORKUBE_SESSION_ID=${10}
 
-IFS=$'\n' read -d '' -r -a secrets <<< "$11"
+echo "Version: 17.0.3"
+
+IFS=$'\n' read -d '' -r -a secrets <<< $11
 
 # Create a string with the --secret flag for each secret
 secrets_flags=""
@@ -15,7 +17,7 @@ for secret in "${secrets[@]}"; do
     secrets_flags+="--secret $secret "
 done
 
-echo "Version: 17.0.2"
+
 
 
 if [ -n "$2" ]; then
