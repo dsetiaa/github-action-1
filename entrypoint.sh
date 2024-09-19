@@ -9,16 +9,13 @@ export TENSORKUBE_SESSION_ID=${10}
 
 echo "Version: 17.0.3"
 
-IFS=$'\n' read -d '' -r -a secrets <<< $11
+secrets=$(echo $11 | tr ' ' '\n')
 
 # Create a string with the --secret flag for each secret
 secrets_flags=""
 for secret in "${secrets[@]}"; do
     secrets_flags+="--secret $secret "
 done
-
-
-
 
 if [ -n "$2" ]; then
     if [ -n "$7" ]; then
