@@ -2,7 +2,7 @@ FROM python:3.10-slim
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends awscli && \
-    pip3 install kubernetes tqdm pathspec inquirer botocore==1.4.93 s3transfer && \
+    pip3 install kubernetes tqdm pathspec inquirer boto3 s3transfer && \
     pip3 install -i https://test.pypi.org/simple/ tensorkube==0.0.16 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
