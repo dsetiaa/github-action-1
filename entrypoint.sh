@@ -7,7 +7,7 @@ cd $8
 export TENSORKUBE_TOKEN=$9
 export TENSORKUBE_SESSION_ID=${10}
 
-echo "Version: 17.0.12"
+echo "Version: 17.0.13"
 
 secrets=$(echo $11 | tr ' ' '\n')
 
@@ -16,6 +16,8 @@ secrets_flags=""
 for secret in $secrets; do
     secrets_flags+="--secret $secret "
 done
+
+echo "Secrets flags: $secrets_flags"
 
 if [ -n "$2" ]; then
     if [ -n "$7" ]; then
