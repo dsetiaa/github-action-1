@@ -7,7 +7,7 @@ cd $8
 export TENSORKUBE_TOKEN=$9
 export TENSORKUBE_SESSION_ID=${10}
 
-echo "Version: 17.0.10"
+echo "Version: 17.0.11"
 
 secrets=$(echo $11 | tr ' ' '\n')
 
