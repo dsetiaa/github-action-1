@@ -1,4 +1,4 @@
-FROM divtf/custom-tk:v7
+FROM divtf/custom-tk:v8
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends awscli && \
