@@ -1,6 +1,6 @@
 #!/bin/sh -l
 
-aws eks update-kubeconfig --name tensorkube --region us-east-1 
+aws eks update-kubeconfig --name tensorkube-0-0-37 --region us-east-1 
 
 export CLUSTER_VERSION=$(kubectl get configmap tensorkube-migration -n default -o jsonpath='{.data.version}')
 if [ "$(printf '%s\n' "$CLUSTER_VERSION" "0.0.40" | sort -V | head -n1)" = "0.0.40" ]; then
