@@ -25,6 +25,7 @@ done
 if [ -n "${12}" ]; then
     echo "Running with config file"
     echo "${12}"
+    cat ${12}
     # tensorkube deploy --config-file $12
 else
     echo "Running without config file"
