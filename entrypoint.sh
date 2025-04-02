@@ -22,11 +22,13 @@ for secret in $secrets; do
     secrets_flags="$secrets_flags --secret $secret"
 done
 
-if [ -n "$12" ]; then
+if [ -n "${12}" ]; then
     echo "Running with config file"
+    echo "${12}"
     # tensorkube deploy --config-file $12
 else
     echo "Running without config file"
+    echo "${12}"
     # if [ -n "$2" ]; then
     #     if [ -n "$7" ]; then
     #         tensorkube deploy --gpus $1 --gpu-type $2 --cpu $3 --memory $4 --min-scale $5 --max-scale $6 --env $7 --github-actions $secrets_flags
