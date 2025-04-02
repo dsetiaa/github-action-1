@@ -22,7 +22,7 @@ for secret in $secrets; do
     secrets_flags="$secrets_flags --secret $secret"
 done
 
-if [ -n "$12" ]:
+if [ -n "$12" ]; then
     echo "Running with config file"
     # tensorkube deploy --config-file $12
 else
