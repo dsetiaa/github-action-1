@@ -39,5 +39,5 @@ else
     #     else
     #         tensorkube deploy --gpus $1 --cpu $3 --memory $4 --min-scale $5 --max-scale $6 --github-actions $secrets_flags
     #     fi
-    fi
+    # fi
 fi
