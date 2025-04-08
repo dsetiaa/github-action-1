@@ -37,6 +37,7 @@ for secret in $secrets; do
 done
 
 if [ "${13}" = "service" ]; then
+    echo "Deploying service"
     if [ -n "${12}" ]; then
         echo "Running with config file"
         echo "${12}"
